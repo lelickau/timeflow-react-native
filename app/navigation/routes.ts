@@ -3,12 +3,9 @@ import Auth from "@/components/screens/Auth/Auth";
 import Home from "@/components/screens/Home/Home";
 import Profile from "@/components/screens/Profile/Profile";
 import Settings from "@/components/screens/Settings/Settings";
+import Statistics from "@/components/screens/statistics/Statistics";
 
 export const routes: IRoute[] = [
-    {
-        name: 'Auth',
-        component: Auth
-    },
     {
         name: 'Home',
         component: Home
@@ -20,5 +17,9 @@ export const routes: IRoute[] = [
     {
         name: 'Profile',
         component: Profile
+    },
+    {
+        name: 'Statistics',
+        component: Statistics
     },
 ]
