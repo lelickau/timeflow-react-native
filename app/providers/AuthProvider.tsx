@@ -2,7 +2,7 @@ import * as Splash from 'expo-splash-screen'
 import React, { Dispatch, FC, PropsWithChildren, SetStateAction, createContext, useEffect, useState } from 'react'
 import type { IUser } from '@/types/user.interface'
 
-export type TypeUserState = IUser | null
+export type TypeUserState = IUser | any
 
 interface IContext {
     user: IUser
@@ -14,10 +14,24 @@ export const AuthContext = createContext({} as IContext)
 let ignore = Splash.preventAutoHideAsync()
 
 const AuthProvider: FC<PropsWithChildren<unknown>> = ({ children }) => {
-    const [user, setUser] = useState<TypeUserState>(null)
+    const [user, setUser] = useState<TypeUserState>({} as IUser)
 
     useEffect(() =>{
-        // get users
+      let isMounted = false
+
+      const getUserFromStorage = async () => {
+        if (isMounted) {
+          // get users
+        }
+
+        await Splash.hideAsync()
+      }
+
+      let ignore = getUserFromStorage()
+
+        return () => {
+          isMounted = false
+        }
     }, [])
   return (
     <AuthContext.Provider value={{ user, setUser }}>
